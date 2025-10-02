@@ -1,0 +1,37 @@
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.new-message-button {
+    border: 0px;
+    padding: 10px 20px;
+    border-radius: 13px;
+    margin: 10px 10px;
+    color: rgb(86, 86, 86);
+    font-weight: 550;
+    width: 130px;
+}
+
+.icon-pencil {
+    color: rgb(86, 86, 86);
+    margin-right: 20px;
+}
+
+.inbox-button {
+    border: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+    padding: 3px 20px;
+    font-weight: 550;
+    text-align: left;
+}
+
+.primary-icon-left-panel {
+    color: white;
+    margin-right: 20px;
+    padding-left: 12px;
+}

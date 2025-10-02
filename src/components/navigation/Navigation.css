@@ -1,0 +1,113 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.logo-gmail{
+    height: 40px;
+}
+
+.navigation-button {
+    border: 0px;
+    background-color: transparent;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+}
+
+.navigation-button:hover{
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+
+.navigation-button svg {
+    width: 100%;
+    height: 100%;
+}
+
+.avatar {
+    border: 0px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    color: white;
+    font-size: large;
+}
+
+.avatar:hover{
+    border: 5px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.search-bar {
+    padding: 20px 45px;
+    border: 0px;
+    border-radius: 40px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.search-bar::placeholder {
+    color: white;
+    font-size: 18px;
+}
+
+.search-bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 100%
+    /* max-width: 450px; */
+}
+
+.icon-magnifying-glass {
+    position: absolute;
+    left: 15px;
+}
+
+.icon-sliders {
+    position: absolute;
+    right: 15px;
+}
+
+.search-bar:focus {
+    background-color: white;
+}
+
+.navigation-item-left {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.navigation-item-center {
+    display: flex;
+    flex: 2;
+    align-items: center;
+}
+
+.navigation-item-right {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: end;
+}
+
