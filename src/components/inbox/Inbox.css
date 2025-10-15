@@ -1,4 +1,39 @@
 .inbox {
     display: flex;
     flex: 3;
+    flex-direction: column;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 5px 10px;
+}
+
+.inbox-tab-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.inbox-tab {
+    display: flex;
+    flex: 1;
+}
+
+.inbox-tab-button {
+    border: none;
+    background-color: transparent;
+    color: rgb(86, 86, 86);
+    cursor: pointer;
+    padding: 0px 0px 10px 0px;
+    margin: 0px 10px 0px 10px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 3px solid transparent;
+}
+
+.inbox-tab-button-active {
+    color: rgb(59,96,196);
+    border-bottom: 3px solid rgb(59,96,196);
+    .icon-pencil {
+        color: rgb(59,96,196)
+    }
 }

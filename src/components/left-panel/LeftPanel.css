@@ -12,6 +12,7 @@
     color: rgb(86, 86, 86);
     font-weight: 550;
     width: 130px;
+    cursor: pointer;
 }
 
 .icon-pencil {
@@ -28,6 +29,7 @@
     padding: 3px 20px;
     font-weight: 550;
     text-align: left;
+    cursor: pointer;
 }
 
 .primary-icon-left-panel {

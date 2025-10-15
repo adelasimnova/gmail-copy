@@ -1,0 +1,10 @@
+.inbox-mailing-item {
+    border-top: 1px solid gray;
+    font-family: Helvetica, Arial, sans-serif;
+    color: black;
+}
+
+.inbox-mailing-item-title-receive-time {
+    display: flex;
+    justify-content: space-between;
+}
