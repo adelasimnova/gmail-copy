@@ -1,6 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Inbox.css";
-import { faInbox, faTag, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBoxArchive,
+  faChevronDown,
+  faCircleExclamation,
+  faEllipsisVertical,
+  faEnvelopeOpen,
+  faInbox,
+  faTag,
+  faTrash,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Mail } from "../../types/Mail";
 import { getPrimaryMails, getPromotionsMails, getSocialMails } from "../../api";
@@ -10,6 +20,8 @@ export function Inbox() {
   const [activeTab, setActiveTab] = useState<
     "primary" | "promotions" | "social"
   >("primary");
+
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const [mails, setMails] = useState<Mail[]>([]);
 
@@ -57,12 +69,45 @@ export function Inbox() {
     setActiveTab("social");
   }
 
+  function handleCheckboxClick() {
+    const newIsChecked = !isChecked;
+    setIsChecked(newIsChecked);
+
+    const checkedMails = mails.map((mail) => {
+      mail.isChecked = newIsChecked;
+      return mail;
+    });
+    setMails(checkedMails);
+  }
+
   // predosle funkcie viem zapisat aj takto, aby som sa neopakovala:
   // onClick={() => setActiveTab("primary")}
   // onClick={() => setActiveTab("promotions")} ...
 
   return (
     <div className="inbox">
+      <div className="inbox-navigation-wrapper">
+        <input
+          className="inbox-navigation-checkbox"
+          type="checkbox"
+          checked={isChecked}
+          onClick={handleCheckboxClick}
+        />
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className="nav-inbox-icon"
+          size="2xs"
+        />
+        <FontAwesomeIcon icon={faBoxArchive} className="nav-inbox-icon" />
+        <FontAwesomeIcon
+          icon={faCircleExclamation}
+          className="nav-inbox-icon"
+        />
+        <FontAwesomeIcon icon={faTrash} className="nav-inbox-icon" />
+        <div className="inbox-nav-divider nav-inbox-icon"></div>
+        <FontAwesomeIcon icon={faEnvelopeOpen} className="nav-inbox-icon" />
+        <FontAwesomeIcon icon={faEllipsisVertical} className="nav-inbox-icon" />
+      </div>
       <div className="inbox-tab-wrapper">
         <div className="inbox-tab">
           <button
@@ -70,7 +115,7 @@ export function Inbox() {
             onClick={handleOnPrimaryClick}
           >
             <FontAwesomeIcon icon={faInbox} className="icon-pencil" />
-            Primary
+            Hlavné
           </button>
         </div>
         <div className="inbox-tab">
@@ -79,7 +124,7 @@ export function Inbox() {
             onClick={handleOnPromotionsClick}
           >
             <FontAwesomeIcon icon={faTag} className="icon-pencil" />
-            Promotions
+            Reklamy
           </button>
         </div>
         <div className="inbox-tab">
@@ -88,7 +133,7 @@ export function Inbox() {
             onClick={handleOnSocialClick}
           >
             <FontAwesomeIcon icon={faUserGroup} className="icon-pencil" />
-            Social
+            Siete
           </button>
         </div>
       </div>

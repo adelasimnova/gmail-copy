@@ -27,16 +27,27 @@ export function InboxMailList(props: Props) {
       });
     }
   }
+
   return (
     <div>
       {props.mailList.map((mail) => (
         <div className="inbox-mailing-item">
           <div className="inbox-mailing-item-title-receive-time">
-            <p>{mail.title}</p>
-            <p>{getEmailReceiveTime(mail.createdAt)}</p>
+            <div className="inbox-mailing-checkbox-title-wrapper">
+              <input
+                type="checkbox"
+                className="inbox-navigation-checkbox"
+                checked={mail.isChecked}
+              ></input>
+              <div className="inbox-mail-title-description">
+                <p className="inbox-mail-title">{mail.title}</p>
+                <p>{mail.description}</p>
+              </div>
+            </div>
+            <p className="inbox-receive-time">
+              {getEmailReceiveTime(mail.createdAt)}
+            </p>
           </div>
-
-          <p>{mail.description}</p>
         </div>
       ))}
     </div>

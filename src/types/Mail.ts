@@ -4,4 +4,5 @@ export interface Mail {
   title: string;
   description: string;
   createdAt: string;
+  isChecked?: boolean;
 }

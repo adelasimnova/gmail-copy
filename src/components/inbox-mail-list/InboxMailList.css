@@ -7,4 +7,24 @@
 .inbox-mailing-item-title-receive-time {
     display: flex;
     justify-content: space-between;
+    margin: 10px 0;
+
+}
+
+.inbox-mailing-checkbox-title-wrapper {
+    display: flex;
+}
+
+.inbox-receive-time {
+    min-width: 60px;
+    margin-left: 10px;
+}
+
+.inbox-mail-title {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.inbox-mail-title-description {
+    padding-left: 10px;
 }
