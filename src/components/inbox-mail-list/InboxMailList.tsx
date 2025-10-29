@@ -3,6 +3,7 @@ import "./InboxMailList.css";
 
 interface Props {
   mailList: Mail[];
+  onSingleCheckboxClick: (id: string) => void;
 }
 
 export function InboxMailList(props: Props) {
@@ -29,15 +30,16 @@ export function InboxMailList(props: Props) {
   }
 
   return (
-    <div>
+    <div className="inbox-mailing-list">
       {props.mailList.map((mail) => (
-        <div className="inbox-mailing-item">
+        <div className="inbox-mailing-item" key={mail.id}>
           <div className="inbox-mailing-item-title-receive-time">
             <div className="inbox-mailing-checkbox-title-wrapper">
               <input
                 type="checkbox"
                 className="inbox-navigation-checkbox"
-                checked={mail.isChecked}
+                checked={mail.isChecked || false}
+                onChange={() => props.onSingleCheckboxClick(mail.id)}
               ></input>
               <div className="inbox-mail-title-description">
                 <p className="inbox-mail-title">{mail.title}</p>

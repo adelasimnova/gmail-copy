@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { Mail } from "../../types/Mail";
 import { getPrimaryMails, getPromotionsMails, getSocialMails } from "../../api";
 import { InboxMailList } from "../inbox-mail-list/InboxMailList";
+import { InboxMailListDetail } from "../inbox-mail-list-detail/InboxMailListDetail";
 
 export function Inbox() {
   const [activeTab, setActiveTab] = useState<
@@ -84,6 +85,23 @@ export function Inbox() {
   // onClick={() => setActiveTab("primary")}
   // onClick={() => setActiveTab("promotions")} ...
 
+  function handleSingleCheckboxClick(id: string) {
+    const mailsCopy = [...mails];
+    const index = mailsCopy.findIndex((mail) => {
+      if (mail.id === id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if (index > -1) {
+      mailsCopy[index].isChecked = !mails[index].isChecked;
+    }
+
+    setMails(mailsCopy);
+  }
+
   return (
     <div className="inbox">
       <div className="inbox-navigation-wrapper">
@@ -91,7 +109,7 @@ export function Inbox() {
           className="inbox-navigation-checkbox"
           type="checkbox"
           checked={isChecked}
-          onClick={handleCheckboxClick}
+          onChange={handleCheckboxClick}
         />
         <FontAwesomeIcon
           icon={faChevronDown}
@@ -137,7 +155,13 @@ export function Inbox() {
           </button>
         </div>
       </div>
-      <InboxMailList mailList={mails} />
+      <div className="inbox-mailing-list-item-detail">
+        <InboxMailList
+          mailList={mails}
+          onSingleCheckboxClick={handleSingleCheckboxClick}
+        />
+        <InboxMailListDetail />
+      </div>
     </div>
   );
 }

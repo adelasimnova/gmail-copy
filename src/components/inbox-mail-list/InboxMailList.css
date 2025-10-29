@@ -1,5 +1,5 @@
 .inbox-mailing-item {
-    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     font-family: Helvetica, Arial, sans-serif;
     color: black;
 }
@@ -27,4 +27,9 @@
 
 .inbox-mail-title-description {
     padding-left: 10px;
+}
+
+.inbox-mailing-list {
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
 }

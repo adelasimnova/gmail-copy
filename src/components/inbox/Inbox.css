@@ -73,3 +73,8 @@
     color: rgb(86, 86, 86);
     margin-right: 20px;
 }
+
+.inbox-mailing-list-item-detail {
+    display: flex;
+    border-top: 1px solid gray;
+}
