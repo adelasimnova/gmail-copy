@@ -1,4 +1,5 @@
 import "./Navigation.css";
+// @ts-expect-error bla bla
 import gmailLogo from "../../assets/logo_gmail.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
