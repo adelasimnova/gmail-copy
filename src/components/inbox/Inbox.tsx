@@ -26,6 +26,8 @@ export function Inbox() {
 
   const [mails, setMails] = useState<Mail[]>([]);
 
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+
   useEffect(() => {
     if (activeTab === "primary") {
       getPrimaryMails().then((data) => {
@@ -102,6 +104,15 @@ export function Inbox() {
     setMails(mailsCopy);
   }
 
+  function handleListItemClick(mailId: string) {
+    setSelectedItemId(mailId);
+  }
+
+  let selectedItem = null;
+  if (mails && selectedItemId) {
+    selectedItem = mails.find((item) => item.id === selectedItemId) || null;
+  }
+
   return (
     <div className="inbox">
       <div className="inbox-navigation-wrapper">
@@ -159,8 +170,9 @@ export function Inbox() {
         <InboxMailList
           mailList={mails}
           onSingleCheckboxClick={handleSingleCheckboxClick}
+          onListItemClick={handleListItemClick}
         />
-        <InboxMailListDetail />
+        <InboxMailListDetail selectedItem={selectedItem} />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import "./InboxMailList.css";
 interface Props {
   mailList: Mail[];
   onSingleCheckboxClick: (id: string) => void;
+  onListItemClick: (id: string) => void;
 }
 
 export function InboxMailList(props: Props) {
@@ -30,7 +31,7 @@ export function InboxMailList(props: Props) {
   }
 
   return (
-    <div className="inbox-mailing-list">
+    <div className="inbox-mailing-list inbox-column">
       {props.mailList.map((mail) => (
         <div className="inbox-mailing-item" key={mail.id}>
           <div className="inbox-mailing-item-title-receive-time">
@@ -41,10 +42,13 @@ export function InboxMailList(props: Props) {
                 checked={mail.isChecked || false}
                 onChange={() => props.onSingleCheckboxClick(mail.id)}
               ></input>
-              <div className="inbox-mail-title-description">
+              <a
+                className="inbox-mail-title-description"
+                onClick={() => props.onListItemClick(mail.id)}
+              >
                 <p className="inbox-mail-title">{mail.title}</p>
-                <p>{mail.description}</p>
-              </div>
+                <p className="inbox-mail-description">{mail.description}</p>
+              </a>
             </div>
             <p className="inbox-receive-time">
               {getEmailReceiveTime(mail.createdAt)}

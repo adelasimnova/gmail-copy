@@ -32,4 +32,12 @@
 .inbox-mailing-list {
     height: calc(100vh - 200px);
     overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
 }
+
+.inbox-mail-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+

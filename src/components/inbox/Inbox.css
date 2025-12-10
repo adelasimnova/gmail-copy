@@ -78,3 +78,7 @@
     display: flex;
     border-top: 1px solid gray;
 }
+
+.inbox-column {
+    width: 50%;
+}

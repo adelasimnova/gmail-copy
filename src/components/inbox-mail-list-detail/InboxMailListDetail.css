@@ -1,0 +1,37 @@
+.inbox-column-detail {
+    padding: 30px;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;s
+}
+
+.inbox-column-detail-title{
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.inbox-column-detail-sender-info-date-row {
+    display: flex;
+    justify-content: space-between;
+    font-size:small;
+    margin-bottom: 20px;
+}
+
+.inbox-column-detail-description {
+    font-size:large;
+}
+
+.inbox-column-detail-title-icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inbox-column-detail-icon {
+    padding: 8px;
+}
+
+.inbox-column-detail-icon:hover{
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    }
